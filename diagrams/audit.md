@@ -32,7 +32,9 @@ evidence is the same as there.
 
 ## State transition diagram
 
-Standalone source: [audit.mmd](audit.mmd), identical to the block below.
+Standalone source: [audit.mmd](audit.mmd), identical to the block below. GitHub
+renders `.mmd` files and leaves their Code and Blame tabs empty; use the Raw
+button there to see the text.
 
 ```mermaid
 stateDiagram-v2

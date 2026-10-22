@@ -36,7 +36,9 @@ duration input that reaches the machine is `timerFired`. Compare
 
 ## State transition diagram
 
-Standalone source: [auditTime.mmd](auditTime.mmd), identical to the block below.
+Standalone source: [auditTime.mmd](auditTime.mmd), identical to the block below. GitHub
+renders `.mmd` files and leaves their Code and Blame tabs empty; use the Raw
+button there to see the text.
 
 ```mermaid
 stateDiagram-v2
