@@ -25,7 +25,7 @@ determine both the next state and the observable response.
 | Path | What it is |
 | --- | --- |
 | [operators/](operators/) | One analysis per source file (117 files, including four internal helpers) |
-| [diagrams/](diagrams/) | State transition diagram and state × input table derived from section C. Currently `audit` only |
+| [diagrams/](diagrams/) | State transition diagram and state × input table derived from section C. Currently `audit` and `auditTime` |
 | [docs/index.md](docs/index.md) | Catalog grouped by behavior |
 | [docs/reading-notes.md](docs/reading-notes.md) | Version facts that disagree with the usual one-line description |
 | [docs/sources.md](docs/sources.md) | Pin, template, and what was not done |

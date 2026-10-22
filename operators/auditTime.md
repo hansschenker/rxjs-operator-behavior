@@ -2,6 +2,8 @@
 
 `auditTime(duration, scheduler = asyncScheduler)` is `audit(() => timer(duration, scheduler))` (`auditTime.ts` 53–55). Each audit window subscribes to a fresh cold `timer` that emits `0` and completes. The inherited `audit` machine therefore takes the duration-`next` path (`endDuration`), which emits the latest pending source value, and not the duration-complete drop path. Source error is still immediate and drops the pending value. Source complete while a timer is armed waits for that timer, then emits the pending value and completes. `cancel` clears the timer via the `audit` child subscription and does not complete. Pin: RxJS **7.8.2**, commit `e5351d02e225e275ac0e497c7b66eaa5f0c88791`, `src/internal/operators/auditTime.ts` delegating to `audit.ts` and `timer.ts`. Not deprecated.
 
+Companion: [state transition diagram and table](../diagrams/auditTime.md).
+
 ## A. Identity, contract, and scope
 
 - Operator/overload: `auditTime<T>(duration: number, scheduler: SchedulerLike = asyncScheduler): MonoTypeOperatorFunction<T>` (`auditTime.ts` 53).
