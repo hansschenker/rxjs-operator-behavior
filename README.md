@@ -29,6 +29,9 @@ determine both the next state and the observable response.
 | [docs/index.md](docs/index.md) | Catalog grouped by behavior |
 | [docs/reading-notes.md](docs/reading-notes.md) | Version facts that disagree with the usual one-line description |
 | [docs/sources.md](docs/sources.md) | Pin, template, and what was not done |
+| [docs/diagram-method.md](docs/diagram-method.md) | How a `diagrams/` file is derived from section C, and its done criteria |
+| [docs/diagram-template.md](docs/diagram-template.md) | Skeleton for a new `diagrams/<operator>.md` |
+| [scripts/](scripts/) | `new-diagram.sh` scaffolds from the template; `sync-mmd.sh` writes and checks the `.mmd` copies |
 
 ## How to read one file
 
