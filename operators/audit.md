@@ -2,6 +2,8 @@
 
 `audit(durationSelector)` starts a duration when a source value arrives and no duration is active. Further source values only update the pending value. When the duration emits `next`, the pending value (the latest, not necessarily the opener) is emitted once and the duration slot clears. Duration `complete` without `next` does not emit; it only clears the slot and, if the source has already completed, completes the output, dropping the pending value. Source error is immediate and drops the pending value. Source complete while a duration is still open waits; the pending value is emitted only if that duration `next`s. `cancel` emits nothing. Pin: RxJS **7.8.2**, commit `e5351d02e225e275ac0e497c7b66eaa5f0c88791`, `src/internal/operators/audit.ts`. Not deprecated.
 
+Companion: [state transition diagram and table](../diagrams/audit.md).
+
 ## A. Identity, contract, and scope
 
 - Operator/overload: `audit<T>(durationSelector: (value: T) => ObservableInput<any>): MonoTypeOperatorFunction<T>` (`audit.ts` 53).
