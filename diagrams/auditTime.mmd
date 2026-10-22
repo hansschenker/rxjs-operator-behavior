@@ -1,0 +1,23 @@
+stateDiagram-v2
+    direction LR
+
+    state "Open(v)" as Open
+    state "OpenDone(v)" as OpenDone
+
+    [*] --> Idle : subscribe / none · T01
+    Idle --> Open : sourceNext(v) / none · T02
+    Open --> Open : sourceNext(w) / none · T03
+    Open --> Idle : timerFired / next(v) · T04
+    Open --> OpenDone : sourceComplete / none · T05
+    Idle --> Stopped : sourceComplete / complete · T07<br>sourceError(e) / error(e) · T08<br>cancel / none · T09
+    Open --> Stopped : sourceError(e) / error(e) · T08<br>cancel / none · T09
+    OpenDone --> Stopped : timerFired / next(v), complete · T06<br>cancel / none · T09
+    Stopped --> [*]
+
+    note right of Open
+        timer(duration) is armed by the opening sourceNext.
+        Later values do not restart it.
+    end note
+    note right of Stopped
+        Absorbing (T11)
+    end note

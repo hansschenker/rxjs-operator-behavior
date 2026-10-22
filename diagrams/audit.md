@@ -32,6 +32,8 @@ evidence is the same as there.
 
 ## State transition diagram
 
+Standalone source: [audit.mmd](audit.mmd), identical to the block below.
+
 ```mermaid
 stateDiagram-v2
     direction LR

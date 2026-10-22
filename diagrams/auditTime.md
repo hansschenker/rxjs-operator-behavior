@@ -36,6 +36,8 @@ duration input that reaches the machine is `timerFired`. Compare
 
 ## State transition diagram
 
+Standalone source: [auditTime.mmd](auditTime.mmd), identical to the block below.
+
 ```mermaid
 stateDiagram-v2
     direction LR

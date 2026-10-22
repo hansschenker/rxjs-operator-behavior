@@ -1,0 +1,23 @@
+stateDiagram-v2
+    direction LR
+
+    state "Open(v)" as Open
+    state "OpenDone(v)" as OpenDone
+
+    [*] --> Idle : subscribe / none · T01
+    Idle --> Open : sourceNext(v) [selector returns] / none · T02
+    Open --> Open : sourceNext(w) / none · T03
+    Open --> Idle : durationNext / next(v) · T04<br>durationComplete / none · T05
+    Open --> OpenDone : sourceComplete / none · T07
+    Idle --> Stopped : sourceNext(v) [selector throws e] / error(e) · T13<br>sourceComplete / complete · T10<br>sourceError(e) / error(e) · T11<br>cancel / none · T12
+    Open --> Stopped : durationError(e) / error(e) · T06<br>sourceError(e) / error(e) · T11<br>cancel / none · T12
+    OpenDone --> Stopped : durationNext / next(v), complete · T08<br>durationComplete / complete · T09<br>durationError(e) / error(e) · T06<br>cancel / none · T12
+    Stopped --> [*]
+
+    note right of Idle
+        After T05 hasValue may still be true.
+        Every input behaves as from Idle.
+    end note
+    note right of Stopped
+        Absorbing (T14)
+    end note
